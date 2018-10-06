@@ -1,12 +1,16 @@
 const alunos = document.querySelectorAll(".aluno");
 
-for (aluno of alunos){
-    const notaUm = aluno.querySelector(".info-notaum").textContent;
-    const notaDois = aluno.querySelector(".info-notadois").textContent;
-    let media = aluno.querySelector(".info-media");
-    let calculoMedia = (parseFloat(notaUm) + parseFloat(notaDois))/2;
-    media.textContent = calculoMedia.toFixed(2);
-    if(media.textContent < 5){
-        aluno.style.backgroundColor = "#fa4747";
-    }
+for(aluno of alunos){
+    const notaUm = aluno.querySelector(".info-notaum");
+    const notaDois = aluno.querySelector(".info-notadois");
+    const media = aluno.querySelector(".info-media");
+
+    const notaUmConteudo = notaUm.textContent;
+    const notaDoisConteudo = notaDois.textContent;
+    media.textContent =  calcularMedia(notaUmConteudo, notaDoisConteudo).toFixed(2);
+}
+
+function calcularMedia (notaUm, notaDois){
+    let calculoMedia = (parseFloat(notaUm) + parseFloat(notaDois)) / 2;
+    return calculoMedia;
 }
