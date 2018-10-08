@@ -1,16 +1,24 @@
-const alunos = document.querySelectorAll(".aluno");
+window.addEventListener("load", function(){
+    imprimirTabela();
+})
 
-for(aluno of alunos){
-    const notaUm = aluno.querySelector(".info-notaum");
-    const notaDois = aluno.querySelector(".info-notadois");
-    const media = aluno.querySelector(".info-media");
-
-    const notaUmConteudo = notaUm.textContent;
-    const notaDoisConteudo = notaDois.textContent;
-    media.textContent =  calcularMedia(notaUmConteudo, notaDoisConteudo).toFixed(2);
+function imprimirTabela (){
+    const alunos = document.querySelectorAll(".aluno");
+    for(aluno of alunos){
+        const notaUm = aluno.querySelector(".info-notaum").textContent;
+        const notaDois = aluno.querySelector(".info-notadois").textContent;
+        const media = aluno.querySelector(".info-media");
+        media.textContent =  calcularMedia(notaUm, notaDois).toFixed(2);
+        let mediaCalculada = media.textContent;
+        notasVermelhas(mediaCalculada, media);
+    }
+}
+function notasVermelhas (mediaCalculada, media){
+        if (mediaCalculada < 5){
+        media.classList.add("abaixo-da-media");
+    }
 }
 
 function calcularMedia (notaUm, notaDois){
-    let calculoMedia = (parseFloat(notaUm) + parseFloat(notaDois)) / 2;
-    return calculoMedia;
+    return calculoMedia = (parseFloat(notaUm) + parseFloat(notaDois)) / 2;
 }
