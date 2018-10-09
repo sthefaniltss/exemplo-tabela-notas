@@ -2,6 +2,21 @@ const botaoAdicionar = document.querySelector("#adicionar-aluno");
 
 botaoAdicionar.addEventListener("click", function(evento){
     evento.preventDefault();
+    /* function obterAluno (){
+    return adicionarNovoAluno(document.querySelector("#form-adiciona"));
+}
+
+function validarNotas(aluno){
+    if(!(aluno.notaUmAluno >= 0 && aluno.notaUmAluno <= 10)){
+        document.querySelector("#mensagem-erro").textContent = "A nota 1 está incorreta!";
+        return false;
+    }
+    if(!(aluno.notaDoisAluno >= 0 && aluno.notaDoisAluno <= 10)){
+        document.querySelector("#mensagem-erro").textContent = "A nota 2 está incorreta!";
+        return false;
+    }
+}
+    */
     const novoFormulario = document.querySelector("#form-adiciona");
     const tabelaAlunos = document.querySelector("#tabela-alunos")
     let novoAluno = adicionarNovoAluno(novoFormulario);
