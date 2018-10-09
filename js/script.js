@@ -1,14 +1,13 @@
 window.addEventListener("load", function(){
-    imprimirTabela();
+    imprimirTabela(document.querySelectorAll(".aluno"));
 })
 
-function imprimirTabela (){
-    const alunos = document.querySelectorAll(".aluno");
+function imprimirTabela (alunos){
     for(aluno of alunos){
         const notaUm = aluno.querySelector(".info-notaum").textContent;
         const notaDois = aluno.querySelector(".info-notadois").textContent;
         const media = aluno.querySelector(".info-media");
-        media.textContent =  calcularMedia(notaUm, notaDois).toFixed(2);
+        media.textContent =  calcularMedia(notaUm, notaDois);
         let mediaCalculada = media.textContent;
         notasVermelhas(mediaCalculada, media);
     }
@@ -20,5 +19,5 @@ function notasVermelhas (mediaCalculada, media){
 }
 
 function calcularMedia (notaUm, notaDois){
-    return calculoMedia = (parseFloat(notaUm) + parseFloat(notaDois)) / 2;
+    return calculoMedia = ((parseFloat(notaUm) + parseFloat(notaDois)) / 2).toFixed(2);
 }
